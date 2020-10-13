@@ -14,8 +14,8 @@
                     <img height="100" width="150" style="margin-top: 10px;"  class="card-img-top" src="{{$post-> photo ? $post->photo->file : 'http://placehold.it/400x400'}}" alt="Card image">
                     <div class="card-body">
                         <h4 class="card-title">{{$post->title}}</h4>
-                        <p class="card-text">{{$post->body}}</p>
-                        <a href="{{route('home.post', $post->id)}}" class="btn btn-primary">See Post</a>
+                        <p class="card-text">{{ \Illuminate\Support\Str::limit($post->body, 40, $end='...') }}</p>
+                        <a href="{{route('home.post', $post->id)}}" class="btn btn-primary" style="margin-top: 10px; ">See Post</a>
                     </div>
                     </div>
                     </div>

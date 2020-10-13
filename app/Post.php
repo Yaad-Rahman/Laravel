@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
+
+
+
 class Post extends Model
 {
     //
@@ -14,6 +18,8 @@ class Post extends Model
         'title',
         'body' 
     ];
+
+    
 
 
     public function user(){
@@ -34,6 +40,8 @@ class Post extends Model
     public function comments(){
         return $this->hasMany('App\Comment');
     }
+
+    
 
 
 }

@@ -19,6 +19,8 @@
                 <th>Comments</th>
                 <th>Created</th>
                 <th>Updated</th>
+                <th></th>
+                <th></th>
 
             </tr>
         </thead>
@@ -38,7 +40,16 @@
                 <td><a href="{{route('home.post', $post->id)}}">View Post</a></td>
                 <td><a href="{{route('admin.comments.index', $post->id)}}">View Comments</a></td>
                 <td>{{$post->created_at->diffForhumans()}}</td>
-                <td>{{$post->updated_at->diffForhumans()}}</td>    
+                <td>{{$post->updated_at->diffForhumans()}}</td> 
+                <td><a class="btn btn-primary" href="{{route('admin.posts.edit', $post->id)}}">Edit Post </a>  </td> 
+                <td>
+                    {!! Form::open(['method' => 'DELETE', 'action' => ['AdminPostsController@destroy', $post->id]]) !!}
+
+                    <div class="form-group">
+                        {!! Form::submit('Delete Post', ['class' => 'btn btn-danger']) !!}
+                    </div>
+                    {!! Form::close() !!}    
+                </td>  
             </tr>
 
             @endforeach
