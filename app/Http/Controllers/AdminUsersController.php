@@ -109,7 +109,6 @@ class AdminUsersController extends Controller
         $user = User::findOrFail($id);
 
         $input = $request->all();
-
         if($file = $request->file('photo_id')){
           $name = time() .$file->getClientOriginalName();
           $file->move('images', $name);
